@@ -14,7 +14,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/auth", async (req, res) => {
-  const address = req.query.address;
+  let address = req.query.address;
+  address = address.replace(/-/g, '');
   const result = await contract.isAddressAuthorized("0x" + address);
   if (result === true) {
     res.status(200).json({ result });
@@ -24,15 +25,17 @@ app.get("/auth", async (req, res) => {
 });
 
 app.post("/auth", async (req, res) => {
-  const address = req.body.address;
+  let address = req.body.address;
+  address = address.replace(/-/g, '');
   const result = await contract.addAddress("0x" + address);
   console.log(result)
   res.status(200).json({ result: true });
 });
 
 app.get("/add", async (req, res) => {
-  const address = req.query.address;
-
+  let address = req.query.address;
+  address = address.replace(/-/g, '');
+  
   // Ensure the address is converted to a proper bytes16 format
   if (address.length !== 32) {
     return res.status(400).json({ error: "Invalid address length. Expected 32 characters for bytes16 format." });
