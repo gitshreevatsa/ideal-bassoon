@@ -2,9 +2,9 @@
 	{
 		"inputs": [
 			{
-				"internalType": "bytes32",
+				"internalType": "bytes16",
 				"name": "_newAddress",
-				"type": "bytes32"
+				"type": "bytes16"
 			}
 		],
 		"name": "addAddress",
@@ -17,9 +17,9 @@
 		"inputs": [
 			{
 				"indexed": true,
-				"internalType": "bytes32",
+				"internalType": "bytes16",
 				"name": "addr",
-				"type": "bytes32"
+				"type": "bytes16"
 			}
 		],
 		"name": "AddressAdded",
@@ -28,9 +28,9 @@
 	{
 		"inputs": [
 			{
-				"internalType": "bytes32",
+				"internalType": "bytes16",
 				"name": "_address",
-				"type": "bytes32"
+				"type": "bytes16"
 			}
 		],
 		"name": "isAddressAuthorized",
